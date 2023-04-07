@@ -5,13 +5,13 @@
 Require this package, with [Composer](https://packagist.org/), in the root directory of your project.
 
 ```bash
-$ composer require noorisysweather/weatherapi
+$ composer require aaisha/stripe
 ```
 
 Add the service provider to `config/app.php` in the `providers` array.
 
 ```php
-Weather\Weatherbit\Providers\WeatherServiceProvider::class,
+        Aaisha\Stripe\Providers\OmnistripeProvider::class,
 ```
 
 ## Configuration
@@ -19,19 +19,19 @@ Weather\Weatherbit\Providers\WeatherServiceProvider::class,
 Laravel requires connection configuration. To get started, you'll need to publish all vendor assets:
 
 ```bash
-$ php artisan vendor:publish --provider="Weather\Weatherbit\Providers\WeatherServiceProvider"
+$ php artisan vendor:publish --provider="Omnipay\Aaisha\Stripe\Providers\OmnistripeProvider"
 ```
 
 You are free to change the configuration file as needed, but the default expected values are below in .env file:
 
 ```php
-RAPID_API_KEY="your rapid api key"
-RAPID_API_HOST="api host" 
+STRIPE_PUBLISHABLE_KEY="Your Publishable Key"
+STRIPE_SECRET_KEY="Your Secret Key"
+STRIPE_CURRENCY=INR
 ```
 
-#### Run APIs on Postman
+#### Run The Project
 
-import postman collection via link and run APIs 
 ```
-https://api.postman.com/collections/22576705-d776556b-d3c4-4cc7-92b5-6b9b29c70d21?access_key=PMAT-01GWNSPHCPC9RX678KJ5831CTG
+http://127.0.0.1:8000/payment
 ```
